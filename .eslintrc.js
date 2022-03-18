@@ -3,22 +3,22 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'airbnb',
-  ],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
+  extends: ["react-app", "react-app/jest"],
+  overrides: [
+    {
+      files: ["*.ts", "*.tsx", "*.d.ts"],
+      env: {
+        node: true,
+      },
+      rules: {
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": [
+          "warn",
+          { vars: "all", args: "after-used", argsIgnorePattern: "_" },
+        ],
+      },
     },
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-  },
-  plugins: [
-    'react',
-    '@typescript-eslint',
   ],
-  rules: {
-  },
-};
+}
