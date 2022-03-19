@@ -1,10 +1,10 @@
-import { Grid, useTheme } from "@mui/material";
-import BackgroundImageMedium from "images/backgroundMedium.jpg";
+import { Grid, useTheme, useMediaQuery } from "@mui/material";
 import Navbar from "components/Navbar";
 import ReactLogo from "images/reactLogo.png";
 
 const Layout = ({ children }) => {
   const theme = useTheme();
+  const isSmall = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Grid
       sx={{
@@ -13,8 +13,25 @@ const Layout = ({ children }) => {
       }}
       container
     >
-      <Grid item xs={2} />
-      <Grid item xs={8} sx={{ minHeight: "100vh" }}>
+      <Grid item md={2} xs={0} />
+      <Grid
+        item
+        xs={12}
+        md={8}
+        sx={{
+          minHeight: "100vh",
+          "&>img": {
+            [theme.breakpoints.up("md")]: {
+              height: theme.spacing(100),
+              width: theme.spacing(105),
+            },
+            [theme.breakpoints.down("md")]: {
+              height: theme.spacing(30),
+              width: theme.spacing(30),
+            },
+          },
+        }}
+      >
         <Navbar />
         {children}
         <img
@@ -26,13 +43,12 @@ const Layout = ({ children }) => {
             left: "50%",
             transform: "translate(-50%,-50%)",
             zIndex: 0,
-            width: theme.spacing(120),
-            height: theme.spacing(100),
+
             opacity: 0.02,
           }}
         />
       </Grid>
-      <Grid item xs={2} />
+      <Grid item md={2} xs={0} />
     </Grid>
   );
 };

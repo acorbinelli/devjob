@@ -4,11 +4,11 @@ import LinkItem from "./LinkItem";
 import CreateImage from "images/create.jpg";
 import BuildImage from "images/build.jpg";
 
-const linkItems = ["create", "build", "fix"];
+const linkItems = ["Create", "Build", "Fix"];
 const descriptions = [
-  { id: "create", text: "Create beautiful and simple designs", picture: CreateImage },
-  { id: "build", text: "Build functional and responsive web apps", picture: BuildImage },
-  { id: "fix", text: "Debug and improve existing react apps", picture: "" },
+  { id: "Create", text: "Create beautiful and simple designs", picture: CreateImage },
+  { id: "Build", text: "Build functional and responsive web apps", picture: BuildImage },
+  { id: "Fix", text: "Debug and improve existing react apps", picture: "" },
 ];
 
 interface NavigationProps {
@@ -16,7 +16,7 @@ interface NavigationProps {
   onClick: (item: string) => void;
 }
 
-const Navigation: FC<NavigationProps> = ({ activeLink, onClick }) => {
+export const Navigation: FC<NavigationProps> = ({ activeLink, onClick }) => {
   const theme = useTheme();
   const descriptionContainerRef = useRef(null);
 
@@ -26,7 +26,7 @@ const Navigation: FC<NavigationProps> = ({ activeLink, onClick }) => {
         height: "100%",
         width: "50%",
         display: "flex",
-        alignItems: "center",
+        alignItems: "flex-start",
         ml: 3,
         zIndex: 10,
       }}
@@ -42,7 +42,12 @@ const Navigation: FC<NavigationProps> = ({ activeLink, onClick }) => {
               display="flex"
               ref={descriptionContainerRef}
               flexDirection="column"
-              sx={{ ml: 3, overflow: "hidden", position: "relative", height: (theme) => theme.spacing(20) }}
+              sx={{
+                ml: 3,
+                overflow: "hidden",
+                position: "relative",
+                height: (theme) => theme.spacing(20),
+              }}
             >
               <Box display="flex">
                 {linkItems.map((item) => (
@@ -73,7 +78,7 @@ const Navigation: FC<NavigationProps> = ({ activeLink, onClick }) => {
                 >
                   <Typography
                     color="secondary"
-                    variant="h6"
+                    variant={"h6"}
                     sx={{ px: 1, mt: 2, mb: 3, fontWeight: 300, position: "absolute", bottom: 0 }}
                   >
                     {description.text}
@@ -88,4 +93,6 @@ const Navigation: FC<NavigationProps> = ({ activeLink, onClick }) => {
   );
 };
 
-export default Navigation;
+export const NavigationSmallScreen: FC<NavigationProps> = ({ activeLink, onClick }) => {
+  return <div />;
+};

@@ -1,5 +1,5 @@
 import { FC, useRef } from "react";
-import { Typography, Box, Button, useTheme, Slide } from "@mui/material";
+import { Typography, Box, Button, useTheme, Slide, useMediaQuery } from "@mui/material";
 
 interface LinkItemProps {
   label: string;
@@ -10,13 +10,18 @@ interface LinkItemProps {
 const LinkItem: FC<LinkItemProps> = ({ label, onClick, selected }) => {
   const theme = useTheme();
   const containerRef = useRef(null);
+  const isSmall = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <Box ref={containerRef} sx={{ overflow: "hidden" }}>
       <Button
         variant="text"
         color="secondary"
-        sx={{ textTransform: "lowercase", fontSize: theme.typography.h3.fontSize, fontWeight: 300 }}
+        sx={{
+          textTransform: "capitalize",
+          fontSize: isSmall ? theme.typography.h5.fontSize : theme.typography.h3.fontSize,
+          fontWeight: 300,
+        }}
         onClick={onClick}
       >
         {label}

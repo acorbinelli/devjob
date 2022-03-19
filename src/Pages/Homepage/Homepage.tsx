@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from "react";
-import { Box, useTheme, Paper, Fade, Typography, Slide } from "@mui/material";
+import { Box, useTheme, Paper, Fade, Typography, Slide, useMediaQuery } from "@mui/material";
 import CreateImage from "images/create.jpg";
 import BuildImage from "images/build.jpg";
-import Navigation from "./Navigation";
+import { Navigation, NavigationSmallScreen } from "./Navigation";
 import Content from "./Content";
 
 const Homepage = () => {
   const theme = useTheme();
-  const [activeLink, setActiveLink] = useState<string>("create");
-
+  const [activeLink, setActiveLink] = useState<string>("Create");
+  const isSmall = useMediaQuery(theme.breakpoints.down("md"));
   const onClickLink = (item: string) => {
     setActiveLink(item);
   };
@@ -23,8 +23,16 @@ const Homepage = () => {
       display="flex"
       justifyContent={"space-between"}
     >
-      <Navigation activeLink={activeLink} onClick={onClickLink} />
-      <Content activeLink={activeLink} />
+      {isSmall ? (
+        <>
+          <NavigationSmallScreen activeLink={activeLink} onClick={onClickLink} />
+        </>
+      ) : (
+        <>
+          <Navigation activeLink={activeLink} onClick={onClickLink} />
+          <Content activeLink={activeLink} />
+        </>
+      )}
     </Box>
   );
 };

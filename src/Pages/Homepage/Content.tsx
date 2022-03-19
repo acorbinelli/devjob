@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Box, Typography, Slide, useTheme } from "@mui/material";
+import { Box, Typography, Slide, useTheme, useMediaQuery } from "@mui/material";
 import { nanoid } from "nanoid";
 import CreatePicture1 from "images/create.jpg";
 import CreatePicture2 from "images/create2.jpg";
@@ -65,24 +65,42 @@ const fixContent = [
 ];
 
 const Content: FC<{ activeLink: string }> = ({ activeLink }) => {
+  const theme = useTheme();
+  const isSmall = useMediaQuery(theme.breakpoints.down("md"));
   const getSlides = () => {
     switch (activeLink) {
-      case "create":
-        return createContent.map((item) => (
-          <Slide key={nanoid()} in direction="left" timeout={item.timeout}>
+      case "Create":
+        if (isSmall) {
+          return (
             <Box
               sx={{
-                width: item.width,
+                width: "100%",
                 height: (theme) => theme.spacing(15),
-                backgroundImage: `url(${item.picture})`,
+                backgroundImage: `url(${CreatePicture3})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                mb: 3,
               }}
             ></Box>
-          </Slide>
-        ));
-      case "build":
+          );
+        } else {
+          return createContent.map((item) => {
+            return (
+              <Slide key={nanoid()} in direction="left" timeout={item.timeout}>
+                <Box
+                  sx={{
+                    width: item.width,
+                    height: (theme) => theme.spacing(15),
+                    backgroundImage: `url(${item.picture})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    mb: 3,
+                  }}
+                ></Box>
+              </Slide>
+            );
+          });
+        }
+      case "Build":
         return buildContent.map((item) => (
           <Slide key={nanoid()} in direction="left" timeout={item.timeout}>
             <Box
@@ -97,7 +115,7 @@ const Content: FC<{ activeLink: string }> = ({ activeLink }) => {
             ></Box>
           </Slide>
         ));
-      case "fix":
+      case "Fix":
         return fixContent.map((item) => (
           <Slide key={nanoid()} in direction="left" timeout={item.timeout}>
             <Box
@@ -122,9 +140,10 @@ const Content: FC<{ activeLink: string }> = ({ activeLink }) => {
         height: "100%",
         width: "50%",
         display: "flex",
-        alignItems: "center",
+        alignItems: isSmall ? "flex-start" : "center",
         justifyContent: "center",
         mr: 4,
+        mt: isSmall ? 2 : 0,
       }}
     >
       <Box
