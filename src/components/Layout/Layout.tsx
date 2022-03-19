@@ -1,10 +1,10 @@
-import { Grid, useTheme, useMediaQuery } from "@mui/material";
+import { Grid, useTheme, useMediaQuery, Typography } from "@mui/material";
 import Navbar from "components/Navbar";
 import ReactLogo from "images/reactLogo.png";
 
 const Layout = ({ children }) => {
   const theme = useTheme();
-  const isSmall = useMediaQuery(theme.breakpoints.down("md"));
+  const isSmall = useMediaQuery(theme.breakpoints.down("lg"));
   return (
     <Grid
       sx={{
@@ -33,7 +33,13 @@ const Layout = ({ children }) => {
         }}
       >
         <Navbar />
-        {children}
+        {isSmall ? (
+          <Typography sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)" }}>
+            RESPONSIVENESS SOON
+          </Typography>
+        ) : (
+          children
+        )}
         <img
           src={ReactLogo}
           alt="react logo"

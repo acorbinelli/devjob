@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Box, Container, useTheme, IconButton, useMediaQuery, Typography } from "@mui/material";
+import { Box, Container, useTheme, IconButton, useMediaQuery } from "@mui/material";
 import Logo from "images/LogoWhite.png";
 import { appRoutes } from "routes";
 import Button from "components/Button";

@@ -26,8 +26,7 @@ export const Navigation: FC<NavigationProps> = ({ activeLink, onClick }) => {
         height: "100%",
         width: "50%",
         display: "flex",
-        alignItems: "flex-start",
-        ml: 3,
+        alignItems: "center",
         zIndex: 10,
       }}
     >
@@ -93,6 +92,6 @@ export const Navigation: FC<NavigationProps> = ({ activeLink, onClick }) => {
   );
 };
 
-export const NavigationSmallScreen: FC<NavigationProps> = ({ activeLink, onClick }) => {
+/* export const NavigationSmallScreen: FC<NavigationProps> = ({ activeLink, onClick }) => {
   return <div />;
-};
+}; */

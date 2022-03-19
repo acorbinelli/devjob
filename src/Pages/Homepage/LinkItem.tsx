@@ -1,5 +1,5 @@
 import { FC, useRef } from "react";
-import { Typography, Box, Button, useTheme, Slide, useMediaQuery } from "@mui/material";
+import { Box, Button, useTheme, Slide, useMediaQuery } from "@mui/material";
 
 interface LinkItemProps {
   label: string;
