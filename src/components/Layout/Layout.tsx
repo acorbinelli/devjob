@@ -1,8 +1,10 @@
-import { Grid } from "@mui/material";
+import { Grid, useTheme } from "@mui/material";
 import BackgroundImageMedium from "images/backgroundMedium.jpg";
 import Navbar from "components/Navbar";
+import ReactLogo from "images/reactLogo.png";
 
 const Layout = ({ children }) => {
+  const theme = useTheme();
   return (
     <Grid
       sx={{
@@ -15,6 +17,20 @@ const Layout = ({ children }) => {
       <Grid item xs={8} sx={{ minHeight: "100vh" }}>
         <Navbar />
         {children}
+        <img
+          src={ReactLogo}
+          alt="react logo"
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%,-50%)",
+            zIndex: 0,
+            width: theme.spacing(120),
+            height: theme.spacing(100),
+            opacity: 0.02,
+          }}
+        />
       </Grid>
       <Grid item xs={2} />
     </Grid>

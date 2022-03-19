@@ -14,7 +14,8 @@ function App() {
       <CssBaseline />
       <Layout>
         <Routes>
-          <Route path="/home" element={<Homepage />} />
+          <Route path="/" element={<Homepage />} />
+          <Route path="home" element={<Homepage />} />
           <Route path="showcase" element={<Showcase />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />

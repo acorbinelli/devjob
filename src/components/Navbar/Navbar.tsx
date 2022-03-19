@@ -25,6 +25,7 @@ const Navbar = () => {
         justifyContent: "space-between",
         alignItems: "flex-end",
         position: "relative",
+        zIndex: 10,
       }}
     >
       <RotatingGear selected={currentPage} position={{ left: -30, bottom: -10 }} />
