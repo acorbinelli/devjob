@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Box, Container, useTheme, IconButton } from "@mui/material";
 import Logo from "images/LogoWhite.png";
-import { useNavigate } from "react-router-dom";
-import NavbarItem from "./NavbarItem";
 import { appRoutes } from "routes";
+import Button from "components/Button";
+import RotatingGear from "./RotatingGear";
 
 const Navbar = () => {
   const theme = useTheme();
@@ -20,12 +21,15 @@ const Navbar = () => {
       sx={{
         mt: 3,
         display: "flex",
-        borderBottom: "1px solid white",
+        borderBottom: (theme) => `1px solid ${theme.palette.secondary.main}`,
         justifyContent: "space-between",
         alignItems: "flex-end",
+        position: "relative",
       }}
     >
-      <IconButton sx={{ marginRight: theme.spacing(3) }}>
+      <RotatingGear selected={currentPage} position={{ left: -30, bottom: -10 }} />
+      <RotatingGear selected={currentPage} position={{ right: -30, bottom: -10 }} />
+      <IconButton disableRipple sx={{ marginRight: theme.spacing(3) }}>
         <img src={Logo} alt="logo" style={{ width: 90, height: 90 }} />
       </IconButton>
       <Box
@@ -37,7 +41,7 @@ const Navbar = () => {
       >
         {appRoutes.map((route) =>
           route.name !== "contact" ? (
-            <NavbarItem
+            <Button
               key={route.name}
               selected={route.name === currentPage}
               onClick={() => onClick(route.path, route.name)}
@@ -46,11 +50,7 @@ const Navbar = () => {
           ) : null
         )}
       </Box>
-      <NavbarItem
-        selected={currentPage === "contact"}
-        onClick={() => onClick("/contact", "contact")}
-        label="contact me"
-      />
+      <Button selected={currentPage === "contact"} onClick={() => onClick("/contact", "contact")} label="contact me" />
     </Container>
   );
 };

@@ -10,12 +10,21 @@ export const theme = createTheme({
   },
   palette: {
     primary: {
-      main: "#ffff",
+      dark: "#495371",
+      main: "#74959A",
+      light: "#98B4AA",
+      contrastText: "#fbf7e9",
     },
     secondary: {
-      main: "#000fff",
+      dark: "#e5c566",
+      main: "#F1E0AC",
+      contrastText: "#495371",
     },
-    text: {},
+    text: {
+      primary: "#fbf7e9",
+      secondary: "#495371",
+      disabled: "#d5d8dd",
+    },
     success: {
       main: "#ff00bc",
     },

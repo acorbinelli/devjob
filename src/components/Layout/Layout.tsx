@@ -7,8 +7,7 @@ const Layout = ({ children }) => {
     <Grid
       sx={{
         flexGrow: 1,
-        backgroundImage: `url(${BackgroundImageMedium})`,
-        backgroundSize: "cover",
+        background: "linear-gradient(347deg, rgba(21,23,32,1) 0%, rgba(73,83,113,1) 89%, rgba(82,95,133,1) 100%)",
       }}
       container
     >
