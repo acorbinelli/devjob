@@ -1,12 +1,25 @@
 import CssBaseline from "@mui/material/CssBaseline";
-import { ThemeProvider, Box } from "@mui/material";
+import { ThemeProvider } from "@mui/material";
+import Layout from "components/Layout";
 import { theme } from "./theme";
+import { Routes, Route } from "react-router-dom";
+import Homepage from "Pages/Homepage";
+import Showcase from "Pages/Showcase";
+import About from "Pages/About";
+import Contact from "Pages/Contact";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box sx={{ background: "red", m: 0, p: 0 }}>AAAAAAAAAAA</Box>
+      <Layout>
+        <Routes>
+          <Route path="/home" element={<Homepage />} />
+          <Route path="showcase" element={<Showcase />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+        </Routes>
+      </Layout>
     </ThemeProvider>
   );
 }
