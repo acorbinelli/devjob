@@ -19,7 +19,15 @@ const LinkItem: FC<LinkItemProps> = ({ label, onClick, selected }) => {
         color="secondary"
         sx={{
           textTransform: "capitalize",
-          fontSize: isSmall ? theme.typography.h5.fontSize : theme.typography.h3.fontSize,
+          fontSize: 40,
+          [theme.breakpoints.down("lg")]: {
+            fontSize: 25,
+          },
+          [theme.breakpoints.down("md")]: {
+            fontSize: 40,
+          },
+          [theme.breakpoints.down("sm")]: { fontSize: 25 },
+
           fontWeight: 300,
         }}
         onClick={onClick}

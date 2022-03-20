@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Box, useTheme, useMediaQuery } from "@mui/material";
-import { Navigation /* NavigationSmallScreen */ } from "./Navigation";
+import { ContentMenu /* NavigationSmallScreen */ } from "./ContentMenu";
 import Content from "./Content";
 
 const Homepage = () => {
@@ -14,20 +14,17 @@ const Homepage = () => {
   return (
     <Box
       sx={{
-        mt: 2,
-        background: "transparent",
-        height: `calc(100vh - ${theme.spacing(25)})`,
+        height: `calc(100vh - ${theme.spacing(20)})`,
+        [theme.breakpoints.down("md")]: {
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "space-between",
+        },
       }}
       display="flex"
     >
-      {isSmall ? (
-        <>{/*  <NavigationSmallScreen activeLink={activeLink} onClick={onClickLink} /> */}</>
-      ) : (
-        <>
-          <Navigation activeLink={activeLink} onClick={onClickLink} />
-          <Content activeLink={activeLink} />
-        </>
-      )}
+      <ContentMenu activeLink={activeLink} onClick={onClickLink} />
+      <Content activeLink={activeLink} />
     </Box>
   );
 };

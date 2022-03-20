@@ -1,10 +1,11 @@
 import { Grid, useTheme, useMediaQuery, Typography } from "@mui/material";
 import Navbar from "components/Navbar";
+import Footer from "components/Footer";
 import ReactLogo from "images/reactLogo.png";
 
 const Layout = ({ children }) => {
   const theme = useTheme();
-  const isSmall = useMediaQuery(theme.breakpoints.down("lg"));
+  const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Grid
       sx={{
@@ -13,10 +14,11 @@ const Layout = ({ children }) => {
       }}
       container
     >
-      <Grid item md={2} xs={0} />
+      <Grid item md={2} sm={0} xs={0} />
       <Grid
         item
         xs={12}
+        sm={12}
         md={8}
         sx={{
           minHeight: "100vh",
@@ -25,21 +27,20 @@ const Layout = ({ children }) => {
               height: theme.spacing(100),
               width: theme.spacing(105),
             },
-            [theme.breakpoints.down("md")]: {
-              height: theme.spacing(30),
-              width: theme.spacing(30),
+            [theme.breakpoints.up("sm")]: {
+              height: theme.spacing(70),
+              width: theme.spacing(70),
+            },
+            [theme.breakpoints.down("sm")]: {
+              maxHeight: theme.spacing(25),
+              maxWidth: theme.spacing(25),
             },
           },
         }}
       >
         <Navbar />
-        {isSmall ? (
-          <Typography sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)" }}>
-            RESPONSIVENESS SOON
-          </Typography>
-        ) : (
-          children
-        )}
+        {children}
+        <Footer />
         <img
           src={ReactLogo}
           alt="react logo"
@@ -49,12 +50,12 @@ const Layout = ({ children }) => {
             left: "50%",
             transform: "translate(-50%,-50%)",
             zIndex: 0,
-
             opacity: 0.02,
+            pointerEvents: "none",
           }}
         />
       </Grid>
-      <Grid item md={2} xs={0} />
+      <Grid item md={2} sm={0} xs={0} />
     </Grid>
   );
 };

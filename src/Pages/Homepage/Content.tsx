@@ -16,7 +16,7 @@ const contentItems = [
     width: "80%",
     picture: CreatePicture1,
     title: "Plan",
-    description: "Plan ahead of start. Take decisions. Make agreements.",
+    description: "Plan ahead of start. Make agreements.",
     timeout: 600,
     category: "Create",
     id: nanoid(),
@@ -43,7 +43,7 @@ const contentItems = [
     width: "80%",
     picture: BuildPicture1,
     title: "Code",
-    description: "Boilerplates. Theme. Layout. Components. API Integration, Unit tests.",
+    description: "Layout. Components. API Integration, Unit tests.",
     timeout: 600,
     category: "Build",
     id: nanoid(),
@@ -98,24 +98,37 @@ const contentItems = [
 const Content: FC<{ activeLink: string }> = ({ activeLink }) => {
   const theme = useTheme();
   const isSmall = useMediaQuery(theme.breakpoints.down("md"));
+  const isSmaller = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMedium = useMediaQuery(theme.breakpoints.down("lg"));
 
   return (
     <Box
       sx={{
-        height: "100%",
         width: "50%",
-        display: "flex",
-        alignItems: isSmall ? "flex-start" : "center",
-        justifyContent: "center",
+        flex: 1,
         mr: 4,
-        mt: isSmall ? 2 : 0,
+        [theme.breakpoints.down("lg")]: {
+          width: "100%",
+          mx: 2,
+          px: 2,
+        },
       }}
     >
       <Box
         display="flex"
         flexDirection="column"
         alignItems="flex-end"
-        sx={{ width: "100%", overflow: "hidden", zIndex: 30 }}
+        justifyContent="center"
+        sx={{
+          width: "100%",
+          overflow: "hidden",
+          zIndex: 30,
+          height: "90%",
+          mt: 2,
+          [theme.breakpoints.down("md")]: {
+            justifyContent: "initial",
+          },
+        }}
       >
         {contentItems.map((item) =>
           activeLink === item.category ? (
@@ -124,7 +137,7 @@ const Content: FC<{ activeLink: string }> = ({ activeLink }) => {
                 elevation={5}
                 sx={{
                   width: item.width,
-                  height: (theme) => theme.spacing(20),
+                  flex: 0.2,
                   backgroundImage: `url(${item.picture})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
@@ -133,6 +146,15 @@ const Content: FC<{ activeLink: string }> = ({ activeLink }) => {
                   display: "flex",
                   alignItems: "center",
                   p: 2,
+                  [theme.breakpoints.down("md")]: {
+                    width: "100%",
+                    my: 2,
+                    flex: 0.3,
+                    height: "auto",
+                  },
+                  [theme.breakpoints.down("sm")]: {
+                    width: "100%",
+                  },
                   "&>*": {
                     display: "none",
                   },
@@ -144,23 +166,28 @@ const Content: FC<{ activeLink: string }> = ({ activeLink }) => {
                   },
                 }}
               >
-                <Box
-                  sx={{
-                    width: (theme) => theme.spacing(0.1),
-                    height: "100%",
-                    background: (theme) => theme.palette.secondary.main,
-                    mr: 3,
-                  }}
-                />
+                {!isMedium && (
+                  <Box
+                    sx={{
+                      width: (theme) => theme.spacing(0.1),
+                      height: "100%",
+                      background: (theme) => theme.palette.secondary.main,
+                      mr: 3,
+                    }}
+                  />
+                )}
                 <Box>
                   <Typography
                     color="secondary"
-                    variant="h3"
-                    sx={{ fontWeight: 300, borderBottom: `1px solid ${theme.palette.secondary.main}` }}
+                    variant="h4"
+                    sx={{
+                      fontWeight: 300,
+                      borderBottom: `1px solid ${theme.palette.secondary.main}`,
+                    }}
                   >
                     {item.title}
                   </Typography>
-                  <Typography color="secondary" variant="body1" sx={{ fontWeight: 300, mt: 1 }}>
+                  <Typography color="secondary" variant="body2" sx={{ fontWeight: 300, mt: 1 }}>
                     {item.description}
                   </Typography>
                 </Box>
