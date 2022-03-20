@@ -4,7 +4,7 @@ export const theme = createTheme({
   components: {
     MuiCssBaseline: {
       styleOverrides: {
-        body: { m: "0" },
+        body: { margin: "0" },
       },
     },
   },
