@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Box, Container, useTheme, IconButton, useMediaQuery, Modal } from "@mui/material";
+import { Box, Container, useTheme, IconButton, useMediaQuery, Modal, modalClasses, Fade } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { appRoutes } from "routes";
@@ -108,36 +108,45 @@ const Navbar = () => {
           </IconButton>
         )}
       </Container>
-      <Modal open={openModal}>
-        <Box display="flex" alignItems="flex-end" flexDirection="column" sx={{ height: "100%" }}>
-          <IconButton onClick={toggleOpenModal} sx={{ mt: 6, mr: 2 }}>
-            <CloseIcon color="secondary" fontSize="large" />
-          </IconButton>
-          <Box
-            display="flex"
-            flexDirection="column"
-            alignItems="flex-end"
-            justifyContent="center"
-            sx={{ "&>*": { mt: 4 }, p: 3, width: "70%", height: "100%" }}
-          >
-            {appRoutes.map((route) =>
-              route.name !== "contact" ? (
+      <Fade in={openModal} mountOnEnter unmountOnExit>
+        <Box>
+          <Modal open>
+            <Box
+              display="flex"
+              alignItems="flex-start"
+              flexDirection="column"
+              sx={{ height: "100%", width: (theme) => theme.spacing(20), background: "black" }}
+            >
+              <IconButton onClick={toggleOpenModal} sx={{ mt: 6, ml: 2 }}>
+                <CloseIcon color="secondary" fontSize="large" />
+              </IconButton>
+              <Box
+                display="flex"
+                flexDirection="column"
+                alignItems="flex-start"
+                justifyContent="center"
+                sx={{ "&>*": { mt: 4 }, p: 3, height: "100%" }}
+              >
+                {appRoutes.map((route) =>
+                  route.name !== "contact" ? (
+                    <Button
+                      key={route.name}
+                      selected={route.name === currentPage}
+                      onClick={() => onClick(route.path, route.name)}
+                      label={route.name}
+                    />
+                  ) : null
+                )}
                 <Button
-                  key={route.name}
-                  selected={route.name === currentPage}
-                  onClick={() => onClick(route.path, route.name)}
-                  label={route.name}
+                  selected={currentPage === "contact"}
+                  onClick={() => onClick("/contact", "contact")}
+                  label="contact me"
                 />
-              ) : null
-            )}
-            <Button
-              selected={currentPage === "contact"}
-              onClick={() => onClick("/contact", "contact")}
-              label="contact me"
-            />
-          </Box>
+              </Box>
+            </Box>
+          </Modal>
         </Box>
-      </Modal>
+      </Fade>
     </>
   );
 };

@@ -14,6 +14,7 @@ const Homepage = () => {
   return (
     <Box
       sx={{
+        overflow: "hidden",
         height: `calc(100vh - ${theme.spacing(20)})`,
         [theme.breakpoints.down("md")]: {
           flexDirection: "column",
