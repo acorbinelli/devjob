@@ -97,8 +97,6 @@ const contentItems = [
 
 const Content: FC<{ activeLink: string }> = ({ activeLink }) => {
   const theme = useTheme();
-  const isSmall = useMediaQuery(theme.breakpoints.down("md"));
-  const isSmaller = useMediaQuery(theme.breakpoints.down("sm"));
   const isMedium = useMediaQuery(theme.breakpoints.down("lg"));
 
   return (

@@ -1,11 +1,11 @@
-import { Box, useTheme, Paper, Button, Slide, Typography, ListItem, List, useMediaQuery } from "@mui/material";
+import { Box, useTheme, Paper, Slide, Typography, ListItem, List, useMediaQuery } from "@mui/material";
+import { useRef } from "react";
 import FacePicture from "images/MyFace.png";
 import ReactLogo from "images/reactLogo.png";
 import NodeJSLogo from "images/nodejsLogo.png";
 import MongoLogo from "images/mongoLogo.png";
 import MuiLogo from "images/muiLogo.png";
 import RestLogo from "images/restLogo.png";
-import { useState, useRef } from "react";
 
 const About = () => {
   const theme = useTheme();

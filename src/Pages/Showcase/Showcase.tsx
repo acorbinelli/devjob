@@ -1,4 +1,4 @@
-import { Box, useTheme, Paper, Fade, Typography, Slide, Grid } from "@mui/material";
+import { Box, useTheme, Slide } from "@mui/material";
 import Button from "components/Button";
 import { useState } from "react";
 import Carousel from "./Carousel";

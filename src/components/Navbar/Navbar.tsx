@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Box, Container, useTheme, IconButton, useMediaQuery, Modal, modalClasses, Fade } from "@mui/material";
+import { Box, Container, useTheme, IconButton, useMediaQuery, Modal, Fade } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { appRoutes } from "routes";

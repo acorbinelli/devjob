@@ -1,11 +1,10 @@
-import { Grid, useTheme, useMediaQuery, Typography } from "@mui/material";
+import { Grid, useTheme } from "@mui/material";
 import Navbar from "components/Navbar";
 import Footer from "components/Footer";
 import ReactLogo from "images/reactLogo.png";
 
 const Layout = ({ children }) => {
   const theme = useTheme();
-  const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Grid
       sx={{

@@ -1,5 +1,5 @@
 import { useRef, FC } from "react";
-import { Box, useTheme, Fade, Typography, Slide, useMediaQuery } from "@mui/material";
+import { Box, useTheme, Fade, Typography, Slide } from "@mui/material";
 import LinkItem from "./LinkItem";
 import CreateImage from "images/create.jpg";
 import BuildImage from "images/build.jpg";
@@ -19,7 +19,6 @@ interface ContentMenuProps {
 export const ContentMenu: FC<ContentMenuProps> = ({ activeLink, onClick }) => {
   const theme = useTheme();
   const descriptionContainerRef = useRef(null);
-  const isSmall = useMediaQuery(theme.breakpoints.down("lg"));
 
   return (
     <Slide in easing={{ enter: "cubic-bezier(1,-0.21,0,1.24)" }} timeout={700}>

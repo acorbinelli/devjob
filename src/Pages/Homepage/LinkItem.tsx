@@ -1,5 +1,5 @@
 import { FC, useRef } from "react";
-import { Box, Button, useTheme, Slide, useMediaQuery } from "@mui/material";
+import { Box, Button, useTheme, Slide } from "@mui/material";
 
 interface LinkItemProps {
   label: string;
@@ -10,7 +10,6 @@ interface LinkItemProps {
 const LinkItem: FC<LinkItemProps> = ({ label, onClick, selected }) => {
   const theme = useTheme();
   const containerRef = useRef(null);
-  const isSmall = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <Box ref={containerRef} sx={{ overflow: "hidden" }}>

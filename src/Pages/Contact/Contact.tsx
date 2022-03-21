@@ -1,4 +1,4 @@
-import { Box, useTheme, Paper, Fade, IconButton, Slide } from "@mui/material";
+import { Box, useTheme, IconButton, Slide } from "@mui/material";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";

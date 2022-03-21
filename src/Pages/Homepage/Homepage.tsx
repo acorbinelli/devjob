@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { Box, useTheme, useMediaQuery } from "@mui/material";
-import { ContentMenu /* NavigationSmallScreen */ } from "./ContentMenu";
+import { Box, useTheme } from "@mui/material";
+import { ContentMenu } from "./ContentMenu";
 import Content from "./Content";
 
 const Homepage = () => {
   const theme = useTheme();
   const [activeLink, setActiveLink] = useState<string>("Create");
-  const isSmall = useMediaQuery(theme.breakpoints.down("md"));
   const onClickLink = (item: string) => {
     setActiveLink(item);
   };
