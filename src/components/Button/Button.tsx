@@ -12,7 +12,7 @@ const Button: FC<ButtonProps> = ({ label, onClick, selected }) => {
   const containerRef = useRef(null);
 
   return (
-    <Box ref={containerRef} sx={{ overflow: "hidden" }}>
+    <Box ref={containerRef} sx={{ overflow: "hidden", width: "fit-content" }}>
       <Slide
         container={containerRef.current}
         in={selected}

@@ -1,18 +1,34 @@
 {
   "files": {
-    "main.js": "/static/js/main.cf55c896.js",
-    "static/js/845.2ed1797e.chunk.js": "/static/js/845.2ed1797e.chunk.js",
+    "main.js": "/static/js/main.0622479f.js",
+    "static/css/313.9c8bd052.chunk.css": "/static/css/313.9c8bd052.chunk.css",
+    "static/js/313.a2909dc8.chunk.js": "/static/js/313.a2909dc8.chunk.js",
     "static/js/787.09ad458d.chunk.js": "/static/js/787.09ad458d.chunk.js",
-    "static/js/314.1dd58c72.chunk.js": "/static/js/314.1dd58c72.chunk.js",
-    "static/media/backgroundMedium.jpg": "/static/media/backgroundMedium.f18d3be0149353c9c91f.jpg",
-    "static/media/LogoWhite.png": "/static/media/LogoWhite.ab915cadcec30b39e1b0.png",
+    "static/js/518.a1015031.chunk.js": "/static/js/518.a1015031.chunk.js",
+    "static/media/create.jpg": "/static/media/create.af979179bd4dad4e3203.jpg",
+    "static/media/fix.jpg": "/static/media/fix.95d8d7f06439224db139.jpg",
+    "static/media/fix3.jpg": "/static/media/fix3.67991659157e03196fe7.jpg",
+    "static/media/build2.jpg": "/static/media/build2.a22ee89a14df036d4e69.jpg",
+    "static/media/build.jpg": "/static/media/build.3050b5433680c9af7885.jpg",
+    "static/media/create3.jpg": "/static/media/create3.cd1f0a8e3a8c79b33bb5.jpg",
+    "static/media/build3.jpg": "/static/media/build3.30a5ad6d47e0fe602fa4.jpg",
+    "static/media/create2.jpg": "/static/media/create2.4a64e76016914406567b.jpg",
+    "static/media/fix2.jpg": "/static/media/fix2.d062052ed0c9bebd9b87.jpg",
+    "static/media/fiverrLogo.png": "/static/media/fiverrLogo.01dc8f946dbf326567bb.png",
+    "static/media/nodejsLogo.png": "/static/media/nodejsLogo.0e0846d2f2bddf76480c.png",
+    "static/media/MyFace.png": "/static/media/MyFace.65090748956c2bcb92ed.png",
+    "static/media/reactLogo.png": "/static/media/reactLogo.202e983ff3790deb881d.png",
+    "static/media/muiLogo.png": "/static/media/muiLogo.5b2d8a0a309d9f7d47c1.png",
+    "static/media/mongoLogo.png": "/static/media/mongoLogo.ef9ffce90d2d54c97e81.png",
+    "static/media/LogoWhite.png": "/static/media/LogoWhite.da8d595c50afef593e8f.png",
     "index.html": "/index.html",
-    "main.cf55c896.js.map": "/static/js/main.cf55c896.js.map",
-    "845.2ed1797e.chunk.js.map": "/static/js/845.2ed1797e.chunk.js.map",
+    "main.0622479f.js.map": "/static/js/main.0622479f.js.map",
+    "313.9c8bd052.chunk.css.map": "/static/css/313.9c8bd052.chunk.css.map",
+    "313.a2909dc8.chunk.js.map": "/static/js/313.a2909dc8.chunk.js.map",
     "787.09ad458d.chunk.js.map": "/static/js/787.09ad458d.chunk.js.map",
-    "314.1dd58c72.chunk.js.map": "/static/js/314.1dd58c72.chunk.js.map"
+    "518.a1015031.chunk.js.map": "/static/js/518.a1015031.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.cf55c896.js"
+    "static/js/main.0622479f.js"
   ]
 }
